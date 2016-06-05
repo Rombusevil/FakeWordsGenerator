@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rombus.evilbones.fwg.Main">
+   <children>
+      <HBox prefHeight="39.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="110.0" text="Seed words:" />
+            <TextField fx:id="userInputText" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="377.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets right="5.0" top="5.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" prefHeight="46.0" prefWidth="493.0">
+         <children>
+            <Label prefHeight="36.0" prefWidth="98.0" text="Word length:" />
+            <Slider fx:id="wordLenSlider" blockIncrement="1.0" majorTickUnit="1.0" max="9.0" min="3.0" prefHeight="73.0" prefWidth="162.0" snapToTicks="true" value="4.0">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Slider>
+            <Button fx:id="generateBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Generate">
+               <HBox.margin>
+                  <Insets right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="clearBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Clear">
+               <HBox.margin>
+                  <Insets right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox prefHeight="284.0" prefWidth="491.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox prefHeight="284.0" prefWidth="493.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TextArea fx:id="resultText" editable="false" maxHeight="1.7976931348623157E308" prefHeight="276.0" prefWidth="336.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextArea>
+                  <ImageView fx:id="dinoImg" fitHeight="150.0" fitWidth="200.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@dino.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
