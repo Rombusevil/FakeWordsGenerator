@@ -35,12 +35,12 @@ public class Main extends Application implements Initializable{
 	@FXML private TextArea resultText;
 	@FXML private Slider wordLenSlider;
 	@FXML private ImageView dinoImg;
-	
+		
 	private CharactersUsed characters;
 	private Modifier modifier;
 	private int genWordLen = 4; // Es configurable por slider
 	private static final int TEXTFIELD_CHAR_LIMIT = 100;
-	private static final int WIDTH = 493, HEIGHT = 374;
+	private static final int WIDTH = 350, HEIGHT = 380;
 
 	public static void main(String[] args) {
 		launch(args);	//Start javafx app
@@ -48,13 +48,13 @@ public class Main extends Application implements Initializable{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		//VBox page = (VBox) FXMLLoader.load(Main.class.getResource("/com/rombus/evilbones/fwg/gui.fxml"));
 		VBox page = (VBox) FXMLLoader.load(Main.class.getResource("/assets/gui.fxml"));
 		Scene scene = new Scene(page);
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Fake Words Generator");
 		primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/assets/ricon128.png")));
+		primaryStage.resizableProperty().setValue(Boolean.FALSE);
 		primaryStage.setMaxWidth(WIDTH);
 		primaryStage.setMinWidth(WIDTH);
 		primaryStage.setMinHeight(HEIGHT);
@@ -119,7 +119,7 @@ public class Main extends Application implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// Acá va todo el código que queremos que se ejecute despuś de que el FXML haya hecho su mágia.
 		modifier = new Modifier();
-		
+				
 		// Limito el largo del input
 		userInputText.textProperty().addListener(new ChangeListener<String>() {
 			@Override
@@ -160,11 +160,14 @@ public class Main extends Application implements Initializable{
 		wordLenSlider.valueProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) {
-				genWordLen = newVal.intValue();
+				int value = newVal.intValue();
+				
+				wordLenSlider.setValue(value);
+				genWordLen = value;
 			}
 		});
-		wordLenSlider.setFocusTraversable(false);
 		
+		wordLenSlider.setFocusTraversable(false);
 		resultText.setFocusTraversable(false);
 	}
 }
